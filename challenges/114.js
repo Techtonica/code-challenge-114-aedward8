@@ -36,7 +36,30 @@
 // ```
 
 function flatten(array){
-    // your code here
+    let array2 =[];
+    const reducer = (accumulator, currentValue) => accumulator.concat(currentValue);
+
+    // Attempd the bonus but was not sure how to access the nested arrays
+
+    // for(let i=0;i<array.length;i++) {
+    //     console.log(array[i].length)
+    //     if(array[i].length>2){
+    //         array2 = array.reduce(reducer)
+    //     console.log(array[i])
+    //     //console.log(array2)
+    //     }
+    // }
+
+    array2 = array.reduce(reducer)
+    //console.log(Array.isArray(array2)) check to see if is array type
+    return array2;
 }
 
 module.exports = flatten;
+
+
+let a = [[1,2],[3,4],[5,6,7]];
+console.log(flatten(a));
+
+//let nested = [[1,2],[3, [4, 5]], [6], 7]
+//flatten(nested);
