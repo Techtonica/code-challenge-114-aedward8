@@ -61,5 +61,23 @@ module.exports = flatten;
 let a = [[1,2],[3,4],[5,6,7]];
 console.log(flatten(a));
 
-//let nested = [[1,2],[3, [4, 5]], [6], 7]
-//flatten(nested);
+
+
+//////  Solution from Digital Ocean that uses recursion
+// is there a way to solve it without recursion or was this a push for us to start remebering recursion?
+// also not sure what the ? and : do in the last line
+
+function flattenArray(data) {
+    // our initial value this time is a blank array
+    const initialValue = [];
+  
+    // call reduce on our data
+    return data.reduce((total, value) => {
+      // if the value is an array then recursively call reduce
+      // if the value is not an array then just concat our value
+      return total.concat(Array.isArray(value) ? flattenArray(value) : value);
+    }, initialValue);
+  }
+
+
+  const numArray = [1, 2, [3, 10, [11, 12]], [1, 2, [3, 4]], 5, 6];
